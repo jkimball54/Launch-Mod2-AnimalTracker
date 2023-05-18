@@ -1,4 +1,4 @@
-# Mod2 Week2 Assessment - <YOUR NAME HERE>
+# Mod2 Week2 Assessment - Jeremy Kimball
 
 ## Setup
 1. Fork this repository.
@@ -12,11 +12,13 @@
 **Important** Answer these questions in this file on your `main` branch.  When finished with the questions, commit and push your main branch.  You do not need to create a pull request yet!
 
 1. What does TDD stand for?
-
+Test Driven Development. It is the practice of writing the tests for code before actually writing any functioning code.
 1. What are three benefits of using TDD?
-
+Works almost like pseudocoding, allowing you to map the structure of the program you are creating.
+When running into errors, the test suite gives better feedback than C# highlighting. (ie. telling you the exact values of certain variables)
+You do not have to go back and write tests after the fact. Getting it out of the way in the beginning is nice as at the end you know your code is working properly and you dont need to write tests at the end (although you could think of more as you go)
 1. Imagine you are in an interview.  The interviewer asks: How do you use TDD? How would you answer?
-
+I use TDD to structure my code and lay out the expectations for how the program needs to properly function.
 1. For the class below, outline the tests you would need.  Try to use as much C# syntax as possible. The first test has been provided for you. (this question is worth 4 points)
 ```c#
 public class Dog
@@ -58,14 +60,48 @@ public void DogHasNameAttribute()
 
     Assert.Equal("Nile", dog.Name);
 }
+
+[Fact]
+public void Dog_Constructor_InitializesDogObject()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+    Assert.Equal("Nile", dog.Name);
+    Assert.Equal("Golden Retriever", dog.Breed);
+    Assert.True(dog.IsHungry);
+}
+
+[Fact]
+public void Dog_Eat_SetsIsHungryProperty()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+    dog.Eat()
+    Assert.False(dog.IsHungry);
+}
+
+[Fact]
+public void Dog_Sleep_SetsIsHungryProperty()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+    dog.Sleep()
+    Assert.True(dog.IsHungry);
+}
+
+[Fact]
+public void Dog_Speak_ReturnsString()
+{
+    Dog dog = new Dog("Nile", "Golden Retriever");
+
+    Assert.Equal("Bark Bark!", dog.Speak());
+}
 ```
 
 5. What is a merge conflict, and when might you encounter one?
-
+A merge conflict is when two commits are editting the same line. You might encounter one when you are trying to merge a branch onto main that already has code where you have added some.
 1. You and a partner are working on a project together.  Your partner is working on aa-branch; you are working on bb-branch.  In as much detail as possible, describe how you both would get your work combined onto the main branch.
-
+On the main branch in github you (whether you are aa-branch or bb-branch) would submit a pull request, it would then be approved and merged. Afterwards, the other branch would also submit a pull request, if there were merge conflicts they would be resolved, approved, and then also merged to the main branch
 1. Why is it good practice to have someone else approve and/or merge your PR?  
-  
+  Another set of eyes on your code is always a good idea, it allows for another fresh party to look over what you have written to make sure there would be no issues with merging the code into the main branch. 
 **Before moving on to the next section, commit your work and push your main branch!**
   
 ## Git Exercise (6 points possible)
