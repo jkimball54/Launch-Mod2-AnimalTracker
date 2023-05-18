@@ -23,3 +23,8 @@ Domestic Cats
 Cows
 - Highland Cattle
 - Belted Galloway
+
+Elephants
+- African Savanna
+- Asian
+- African Forest
